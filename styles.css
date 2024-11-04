@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+header {
+  background-color: #333;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjusted space between filter elements */
+}
+
+.filters input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 150px; /* Adjusted width for better alignment */
+}
+
+.filters button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF; /* Button color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.filters button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Make sure the search button is next to the input */
+.filters button#searchBtn {
+  margin-left: -5px; /* Bring the search button closer to the input */
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  padding: 20px;
+}
+
+#countryList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1em;
+}
+
+#languageFilter {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#languageFilter:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+#languageFilter:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#languageFilter option {
+  color: #333;
+  background-color: #fff;
+}
+
+
+/* Card Styling */
+.country-card {
+  flex: 1 1 20%;
+  padding: 0.8em;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.country-card img {
+  width: 70%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+}
+
+.country-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.close-btn {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #333;
+  border-radius: 4px;
+  padding: 4px 8px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.go-back-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.remove-favorite {
+  color: #d9534f; /* Red color for remove action */
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #d9534f;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.remove-favorite:hover {
+  color: #fff;
+  background-color: #d9534f;
+}
+
+#favoritelist {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+#favoritelist h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+#favoritelist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#favoritelist li {
+  position: relative;
+  padding: 12px 20px;
+  margin: 10px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+#favoritelist li:hover {
+  background-color: #e0f7fa;
+  transform: translateY(-2px);
+}
+
+#favoritelist li:before {
+  content: "★";
+  margin-right: 10px;
+  color: #ffcc00;
+  font-size: 20px;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+  .filters {
+    flex-direction: row; /* Keep filters in a row */
+    align-items: center; /* Center items vertically */
+    gap: 5px; /* Maintain gap between elements */
+  }
+
+  #countryList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters input,
+  .filters button {
+    width: auto; /* Allow input and button to size automatically */
+    flex: 1; /* Allow flexibility */
+  }
+
+  /* Adjust language filter for responsive */
+  #languageFilter {
+    flex: 1; /* Allow it to take flexible space */
+    min-width: 100px; /* Set a minimum width */
+  }
+
+  /* Adjust wishlist button for responsive */
+  #wishlistBtn {
+    padding: 10px;
+    min-width: 40px; /* Set a minimum width for the button */
+  }
+}
+
+/* Specific adjustments for iPhone SE and other small devices */
+@media (max-width: 320px) {
+  .filters {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: stretch; /* Allow items to stretch full width */
+  }
+
+  .filters input,
+  .filters button,
+  #languageFilter {
+    width: 100%; /* Make all filters full width */
+    margin-bottom: 5px; /* Add some space between elements */
+  }
+
+  #countryList {
+    display: grid;
+    grid-template-columns: 1fr; /* Show one country card per row */
+  }
+
+  .country-card {
+    flex: 1 1 100%; /* Make country cards take full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .filters {
+    width: 100%; /* Ensure filters take full width */
+    justify-content: space-between; /* Distribute space evenly */
+  }
+}
+
